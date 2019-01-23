@@ -12,5 +12,5 @@ class Controller
     save_param = Gossip.new(params[:author],params[:content]).save
   end
 end
-ray  = Controller.new.create_gossip
-puts ray
+app = Controller.new.create_gossip
+app
