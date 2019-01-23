@@ -10,4 +10,10 @@ class View
   	@content_view = gets.chomp()
   	return params = { content: @content_view, author: @author_view }
   end
+  def index_gossips
+  	 Gossip.all
+  end
+  def delete_gossips
+  	
+  end
 end

@@ -13,7 +13,9 @@ class Controller
     save_param = Gossip.new(params[:author],params[:content]).save
   end
   def index_gossips
-  	@my_csv = CSV.read("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv")
-  	puts @my_csv.inspect
+  	@view.index_gossips
+  end
+  def delete_gossips
+  	@view.delete_gossips
   end
 end
