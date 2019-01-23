@@ -1,6 +1,6 @@
 require_relative "gossip"
 class View
-  attr_accessor :author_view, :content_view, :destroy
+  attr_accessor :author_view, :content_view, :destroy_content, :destroy_author
   def create_gossip
   	puts "Autheur: "
   	print "> "
@@ -14,8 +14,12 @@ class View
   	 Gossip.all
   end
   def destroy
-  	puts "ligne que tu veux supprimer: "
+  	puts "Auteur: "
   	print "> "
-  	@destroy = gets.chomp()
+  	@destroy_author = gets.chomp()
+  	puts "Content: "
+  	print "> "
+  	@destroy_content = gets.chomp()
+  	return params = { destroy_content: @destroy_content, destroy_author: @destroy_author }
   end
 end
