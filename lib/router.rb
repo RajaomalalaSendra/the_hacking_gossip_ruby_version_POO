@@ -16,6 +16,7 @@ class Router
       puts "2. Je veux afficher tous les potins"
       puts "3. Je veux supprimer un potin"
       puts "4. Je veux quitter l'app"
+      print "> "
       params = gets.chomp.to_i #on attend le choix de l'utilisateur
 
       case params #en fonction du choix
