@@ -2,7 +2,7 @@ require "csv"
 require "pp"
 
 class Gossip
-	attr_accessor :author, :content, :myhash, :all_gossips, :myhash_to_delete
+	attr_accessor :author, :content, :myhash, :all_gossips, :array_to_delete
 
 	def initialize(author, content)
 		@author = author
@@ -17,17 +17,19 @@ class Gossip
 	end
 	def destroy
 		table = CSV.open("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv", "a+")
-		@myhash_to_delete = Hash.new
+		@array_to_delete = Array.new
 		@@a = Array.new
-		@myhash_to_delete[@author] = @content
-		puts @myhash_to_delete.to_a
+		@array_to_delete = [@author, @content]
 		table.each do |row|
 			@@a << row
-			puts @@a.length
   		end
-  		for i in 0..a.length do 
-  			if @@a[i] == @myhash_to_delete.to_a
-  				puts @@a[i]
+  		length = @@a.length
+  		for i in 0..length do 
+  			if @@a[i] == @array_to_delete
+  				@@a.delete(@@a[i])
+  				CSV.open("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv", "w") do |csv| 
+			    @@a.each {|elem| csv << elem}
+		      end
   		    end
   		end		
 	end
