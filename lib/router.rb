@@ -13,8 +13,8 @@ class Router
       #on affiche le menu
       puts "Tu veux faire quoi BG ?"
       puts "1. Je veux créer un gossip"
-      puts "2. Afficher tous les potins"
-      puts "3. Supprimer un potin"
+      puts "2. Je veux afficher tous les potins"
+      puts "3. Je veux supprimer un potin"
       puts "4. Je veux quitter l'app"
       params = gets.chomp.to_i #on attend le choix de l'utilisateur
 
@@ -37,5 +37,3 @@ class Router
     end
   end
 end
-app = Router.new.perform
-puts app
