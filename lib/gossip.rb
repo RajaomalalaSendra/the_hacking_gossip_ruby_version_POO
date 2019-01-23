@@ -9,7 +9,7 @@ class Gossip
 	def save
 		@myhash = Hash.new
 		@myhash[@author] = @content
-		CSV.open("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv", "wb") do |csv| 
+		CSV.open("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv", "a") do |csv| 
 			@myhash.to_a.each {|elem| csv << elem}
 		end
 	end
