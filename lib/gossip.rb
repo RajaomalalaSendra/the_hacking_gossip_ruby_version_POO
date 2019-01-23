@@ -15,6 +15,12 @@ class Gossip
 			@myhash.to_a.each {|elem| csv << elem}
 		end
 	end
+	def destroy
+		table = CSV.table("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv")
+		table.delete_if do |row|
+  			row[:params] == 'true'
+  		end		
+	end
 	def self.all
       @my_csv = CSV.read("/home/malala/Documents/THP/the_hacking_gossip_ruby_version_POO/db/gossip.csv")
   	  puts @my_csv.inspect
